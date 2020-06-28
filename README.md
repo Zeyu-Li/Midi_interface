@@ -10,6 +10,16 @@ Install with
 python setup.py install
 ```
 
++
+
+You need MIDIUtil, so
+
+```shell
+pip install MIDIUtil
+```
+
+
+
 
 
 ## Use
