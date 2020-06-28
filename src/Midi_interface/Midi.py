@@ -94,11 +94,18 @@ class Midi:
 
         return_list = []
         for note in string_notes:
-            if note != 'r':
-                note = note.strip().lower()
-                return_list.append(12 * int(note[-1:]) + key[note[:-1]])
+            if isinstance(note, tuple):
+                tmp = []
+                for single_note in note:
+                    single_note = single_note.strip().lower()
+                    tmp.append(12 * int(single_note[-1:]) + key[single_note[:-1]])
+                return_list.append(tuple(tmp))
             else:
-                return_list.append('r')
+                if note != 'r':
+                    note = note.strip().lower()
+                    return_list.append(12 * int(note[-1:]) + key[note[:-1]])
+                else:
+                    return_list.append('r')
 
         return return_list
 
@@ -124,7 +131,10 @@ class Midi:
                     self.__midi.addNote(self.track, self.channel, note, self.time, duration, self.volume)
 
             # calculates new time
-            self.time += duration
+            if isinstance(duration, tuple):
+                self.time += duration[0]
+            else:
+                self.time += duration
 
     def output_mid(self, name):
         '''
