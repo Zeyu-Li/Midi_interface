@@ -20,6 +20,12 @@ pip install MIDIUtil
 
 
 
+## Tests
+
+To run a test, use the following command
+```shell
+py .\tests\test_1.py
+```
 
 
 ## Use
