@@ -24,7 +24,7 @@ class Midi:
         '''
 
         # checks if volume is within range
-        assert 0 <= volume <= 127, "Volume out of range"
+        assert 0 <= int(volume) <= 127, "Volume out of range"
 
         # inits
         self.track    = 0            # which track
@@ -40,10 +40,10 @@ class Midi:
         self.duration = []    # In beats
 
         # midi object init (private)
-        self.__midi     = MIDIFile(tracks_number)  # One track, defaults to format 1 (tempo track is created automatically)
+        self.__midi     = MIDIFile(int(tracks_number))  # One track, defaults to format 1 (tempo track is created automatically)
 
         # sets tempo
-        self.set_tempo(self.time, self.tempo)
+        self.set_tempo(self.tempo, self.time)
 
     def __repr__(self):
         ''' prints representation of midi (all the notes and duraction) as a list '''
@@ -130,6 +130,7 @@ class Midi:
         '''
         given mid output name (.mid extension not needed),
         the .mid extension will be added
+        *Note if the mid file of the same name already exists, it will be OVERWRITTEN
         '''
 
         # encodes current track
@@ -139,10 +140,6 @@ class Midi:
         name = name.strip()
         if name[4:] != '.mid':
             name += '.mid'
-
-        absolute_path = os.getcwd()
-        print(absolute_path)
-        return
 
         # create directory if note existing
         if not os.path.exists('output'):

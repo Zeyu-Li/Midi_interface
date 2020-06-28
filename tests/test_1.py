@@ -1,8 +1,8 @@
-import Midi_interface.Midi as Midi
+from Midi_interface.Midi import Midi
 
 def main():
     # sets 1 track and tempo as 115 bpm
-    mid = Midi.Midi(1, 115)
+    mid = Midi(1, 115)
     
     # sets instrument as guitar
     mid.set_instrument(25)
