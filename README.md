@@ -10,7 +10,7 @@ Install with
 python setup.py install
 ```
 
-+
+\+
 
 You need MIDIUtil, so
 
@@ -28,6 +28,8 @@ py .\tests\test_1.py
 ```
 
 
+
+
 ## Use
 
 To use, import with 
@@ -35,6 +37,7 @@ To use, import with
 ```python
 from Midi_interface.Midi import Midi
 ```
+
 
 
 
