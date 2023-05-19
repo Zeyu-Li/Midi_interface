@@ -56,13 +56,13 @@ def set_instrument(self, instrument_number):
   
 def notes_to_midi(self, string_notes):
     '''
-    converts list of notes ie [G3, Ab5, f#2] (supports octives 0 to 9 inclusive)
-    to notes interperated by this midi class
+    converts list of notes ie [G3, Ab5, f#2] (supports octaves 0 to 9 inclusive)
+    to notes interpreted by this midi class
     '''
         
 def push_notes(self, new_notes, duration):
     ''' 
-    given list of note pitch and duraction, push to notes and duraction attribute
+    given list of note pitch and duration, push to notes and duration attribute
     (new note pitch can be a list or a single note, same with duration)
     '''
         
